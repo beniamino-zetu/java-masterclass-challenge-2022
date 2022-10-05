@@ -8,7 +8,7 @@ public class FakeCatalog implements SupermarketCatalog {
     private final Map<String, Double> prices = new HashMap<>();
 
     @Override
-    public void addProduct(Product product, double price) {
+    public void addProduct(Product product, Double price) {
         this.products.put(product.getName(), product);
         this.prices.put(product.getName(), price);
     }

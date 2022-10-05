@@ -11,7 +11,7 @@ import java.util.Locale;
 @AllArgsConstructor
 public class ReceiptPrinter {
 
-    private final int columns;
+    private final Integer columns;
 
     public String printReceipt(Receipt receipt) {
         StringBuilder result = new StringBuilder();
@@ -66,7 +66,7 @@ public class ReceiptPrinter {
         return line.toString();
     }
 
-    private static String presentPrice(double price) {
+    private static String presentPrice(Double price) {
         return String.format(Locale.UK, "%.2f", price);
     }
 

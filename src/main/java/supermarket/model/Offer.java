@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Offer {
 
-    SpecialOfferType offerType;
+    private final SpecialOfferType offerType;
     private final Product product;
-    double argument;
+    private final Double argument;
 }

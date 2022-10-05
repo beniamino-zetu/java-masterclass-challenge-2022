@@ -9,6 +9,6 @@ public class Discount {
 
     private final Product product;
     private final String description;
-    private final double discountAmount;
+    private final Double discountAmount;
 
 }

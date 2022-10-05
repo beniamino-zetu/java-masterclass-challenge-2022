@@ -13,8 +13,8 @@ public class Receipt {
     @Getter
     private final List<Discount> discounts = new ArrayList<>();
 
-    public double getTotalPrice() {
-        double total = 0.0;
+    public Double getTotalPrice() {
+        Double total = 0.0;
         for (ReceiptItem item : items) {
             total += item.getTotalPrice();
         }
@@ -24,7 +24,7 @@ public class Receipt {
         return total;
     }
 
-    public void addProduct(Product p, double quantity, double price, double totalPrice) {
+    public void addProduct(Product p, Double quantity, Double price, Double totalPrice) {
         items.add(new ReceiptItem(p, quantity, price, totalPrice));
     }
 

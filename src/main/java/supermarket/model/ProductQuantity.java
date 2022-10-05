@@ -8,6 +8,6 @@ import lombok.Data;
 public class ProductQuantity {
 
     private final Product product;
-    private final double quantity;
+    private final Double quantity;
 
 }
