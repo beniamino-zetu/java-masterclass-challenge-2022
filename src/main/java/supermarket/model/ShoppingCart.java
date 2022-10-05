@@ -37,13 +37,13 @@ public class ShoppingCart {
 
                 switch (offer.getOfferType()) {
                     case THREE_FOR_TWO:
-                        discount =  threeForTwoOffer(p, (int) quantity, unitPrice);
+                        discount = DiscountCalculator.threeForTwoOffer(p, (int) quantity, unitPrice);
                         break;
                     case TWO_FOR_AMOUNT:
-                        discount =  twoForAmountOffer(p, offer, (int) quantity, unitPrice);
+                        discount = DiscountCalculator.twoForAmountOffer(p, offer, (int) quantity, unitPrice);
                         break;
                     case FIVE_FOR_AMOUNT:
-                        discount =  fiveForAmountOffer(p, offer, (int) quantity, unitPrice);
+                        discount = DiscountCalculator.fiveForAmountOffer(p, offer, (int) quantity, unitPrice);
                         break;
                     case TEN_PERCENT_DISCOUNT:
                         discount = new Discount(p, offer.getArgument() + "% off", -quantity * unitPrice * offer.getArgument() / 100.0);
@@ -52,42 +52,5 @@ public class ShoppingCart {
                 if (discount != null) receipt.addDiscount(discount);
             }
         }
-    }
-
-    private Discount threeForTwoOffer(Product p, int quantity, double unitPrice) {
-        int x = 3;
-        int numberOfXs = quantity / x;
-        Discount discount = null;
-        if (quantity > 2) {
-            double discountAmount = quantity * unitPrice - ((numberOfXs * 2 * unitPrice) + quantity % 3 * unitPrice);
-            discount = new Discount(p, "3 for 2", -discountAmount);
-        }
-        return discount;
-    }
-
-    private Discount twoForAmountOffer(Product p, Offer offer, int quantity, double unitPrice) {
-        int x = 2;
-        Discount discount = null;
-        if (quantity >= 2) {
-            int intDivision = quantity / x;
-            double pricePerUnit = offer.getArgument() * intDivision;
-            double theTotal = (quantity % 2) * unitPrice;
-            double total = pricePerUnit + theTotal;
-            double discountN = unitPrice * quantity - total;
-            discount = new Discount(p, "2 for " + offer.getArgument(), -discountN);
-        }
-        return discount;
-    }
-
-    private Discount fiveForAmountOffer(Product p, Offer offer, int quantity, double unitPrice) {
-        int x = 5;
-        Discount discount = null;
-        if (quantity >= 5) {
-            int numberOfXs = quantity / x;
-            double discountTotal = unitPrice * quantity - (offer.getArgument() * numberOfXs + quantity % 5 * unitPrice);
-            discount = new Discount(p, x + " for " + offer.getArgument(), -discountTotal);
-        }
-
-        return discount;
     }
 }
