@@ -1,20 +1,17 @@
-package dojo.supermarket;
+package supermarket;
 
-import dojo.supermarket.model.*;
+import lombok.AllArgsConstructor;
+import supermarket.model.Discount;
+import supermarket.model.ProductUnit;
+import supermarket.model.Receipt;
+import supermarket.model.ReceiptItem;
 
 import java.util.Locale;
 
+@AllArgsConstructor
 public class ReceiptPrinter {
 
     private final int columns;
-
-    public ReceiptPrinter() {
-        this(40);
-    }
-
-    public ReceiptPrinter(int columns) {
-        this.columns = columns;
-    }
 
     public String printReceipt(Receipt receipt) {
         StringBuilder result = new StringBuilder();
@@ -75,7 +72,7 @@ public class ReceiptPrinter {
 
     private static String presentQuantity(ReceiptItem item) {
         return ProductUnit.EACH.equals(item.getProduct().getUnit())
-                ? String.format("%d", (int)item.getQuantity())
+                ? String.format("%d", (int) item.getQuantity())
                 : String.format(Locale.UK, "%.3f", item.getQuantity());
     }
 }

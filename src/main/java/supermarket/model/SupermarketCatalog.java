@@ -1,4 +1,4 @@
-package dojo.supermarket.model;
+package supermarket.model;
 
 public interface SupermarketCatalog {
 

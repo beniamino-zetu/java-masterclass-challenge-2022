@@ -1,4 +1,4 @@
-package dojo.supermarket;
+package supermarket;
 
 import org.approvaltests.core.ApprovalFailureReporter;
 import org.approvaltests.reporters.JunitReporter;

@@ -1,4 +1,4 @@
-package dojo.supermarket.model;
+package supermarket.model;
 
 import java.util.HashMap;
 import java.util.List;
